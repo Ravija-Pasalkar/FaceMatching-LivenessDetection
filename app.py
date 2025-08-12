@@ -9,8 +9,11 @@ import cv2
 from google.generativeai import configure, GenerativeModel
 import speech_recognition as sr
 from deepface import DeepFace
+from dotenv import load_dotenv
 
-configure(api_key='your-api-key') 
+load_dotenv()
+api = os.getenv("API_KEY")
+configure(api_key=api) 
 
 app = Flask(__name__, template_folder='templates', static_folder='.', static_url_path='')
 CORS(app)
